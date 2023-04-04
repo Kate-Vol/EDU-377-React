@@ -16,10 +16,18 @@ function App () {
         setPosts([...posts, newPost])
     }
 
+    //Получаем post из дочернего компонента
+    const removePost = (post)=>{
+        setPosts(posts.filter(p => p.id !== post.id))
+    }
+
   return (
     <div className="App">
         <PostForm create={createPost}/>
-        <PostList posts={posts} title={'Posts list 1'}/>
+        {posts.length !==0
+                ? <PostList remove={removePost} posts={posts} title={'Posts list 1'}/>
+                : <h1 style={{textAlign: 'center'}}>Posts cant find</h1>
+        }
     </div>
   );
 }
