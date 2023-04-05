@@ -1,4 +1,4 @@
-import React, {useMemo, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import './Styles/App.css'
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
@@ -21,6 +21,10 @@ function App () {
     const[modal, setModal] = useState(false)
     const sortedAndSearchedPosts= usePosts(posts, filter.sort, filter.query)
 
+    useEffect(() => {
+        fetchPosts()
+    }, [])
+
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
         setModal(false)
@@ -40,7 +44,6 @@ function App () {
 
   return (
     <div className="App">
-        <button onClick={fetchPosts}>Get posts</button>
         <MyButton style={{marginTop: 30}} onClick={() => setModal(true)}>
             Create users
         </MyButton>
