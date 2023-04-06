@@ -6,7 +6,7 @@ import AppRouter from "./components/AppRouter";
 
 function App () {
     return (
-        <BrowserRouter>
+        <BrowserRouter  basename={process.env.PUBLIC_URL}>
             <Navbar/>
             <AppRouter/>
 
