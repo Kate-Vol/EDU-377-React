@@ -1,0 +1,11 @@
+.myNavbar {
+    width: 800px;
+ align-self: center;
+}
+
+.navbar__links{
+    display: flex;
+    justify-content: end;
+    margin: 20px 0;
+}
+

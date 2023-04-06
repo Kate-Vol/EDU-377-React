@@ -65,7 +65,7 @@ function Posts() {
     return (
         <div className="App">
             <MyButton style={{marginTop: 30}} onClick={() => setModal(true)}>
-                Create users
+                Create post
             </MyButton>
             <MyModal visible={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
@@ -92,17 +92,11 @@ function Posts() {
                 <h1>It's error ${postError}</h1>
             }
             <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Posts list 1'}/>
-            <div ref={lastElement} style={{height:20, background: 'red'}}></div>
+            <div ref={lastElement} style={{height:20}}></div>
             {isPostsLoading &&
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
             }
 
-
-            <Pagination
-                page={page}
-                changePage={changePage}
-                totalPages={totalPages}
-            />
 
         </div>
     );
